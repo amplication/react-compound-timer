@@ -18,7 +18,7 @@ const TimerContext = React.createContext<TimerContextType>({
   formatValue: value => String(value),
 });
 
-const TimerValue: React.SFC<{ unit: Unit, formatValue?: FormatValueType }> = ({
+const TimerValue: React.FC<{ unit: Unit, formatValue?: FormatValueType }> = ({
   unit,
   formatValue,
 }) => (
@@ -35,27 +35,28 @@ interface TimerValueItemProps {
   formatValue?: FormatValueType;
 }
 
-const Milliseconds: React.SFC<TimerValueItemProps> = props => (
+const Milliseconds: React.FC<TimerValueItemProps> = props => (
   <TimerValue unit="ms" {...props} />
 );
 
-const Seconds: React.SFC<TimerValueItemProps> = props => (
+const Seconds: React.FC<TimerValueItemProps> = props => (
   <TimerValue unit="s" {...props} />
 );
 
-const Minutes: React.SFC<TimerValueItemProps> = props => (
+const Minutes: React.FC<TimerValueItemProps> = props => (
   <TimerValue unit="m" {...props} />
 );
 
-const Hours: React.SFC<TimerValueItemProps> = props => (
+const Hours: React.FC<TimerValueItemProps> = props => (
   <TimerValue unit="h" {...props} />
 );
 
-const Days: React.SFC<TimerValueItemProps> = props => (
+const Days: React.FC<TimerValueItemProps> = props => (
   <TimerValue unit="d" {...props} />
 );
 
 interface TimerProps {
+  children?: React.ReactNode;
   /** Timer count direction */
   direction?: 'forward' | 'backward';
   /** Inittial time on timer */
